@@ -1,0 +1,45 @@
+*** IMPORTANT ***
+This is a minimal patch to make your provided file runnable + multi-language ready,
+without changing the core video-generation logic.
+
+Apply manually (or with git apply) to your existing file.
+
+--- a/video_generator.py
++++ b/video_generator.py
+@@
+-    prompt = PromptTemplate(
+-        input_variables=["query"],
+-        template=prompt_string
+-    )
++    prompt = PromptTemplate(
++        input_variables=["query", "languages", "style"],
++        template=prompt_string
++    )
+@@
+-                "content": prompt.format(query=state["user_query"], languages=state["languages"], style=state["style"])
++                "content": prompt.format(
++                    query=state["user_query"],
++                    languages=", ".join(state.get("languages", [])) if isinstance(state.get("languages"), list) else str(state.get("languages", "")),
++                    style=str(state.get("style", "")),
++                )
+@@
+def generate_voice(state: VideoGenerator) -> VideoGenerator:
+@@
+-    for idx, text in enumerate(voice_overs, start=1):
++    # language code passed from backend as `tts_lang` (e.g., hi, ta, te)
++    tts_lang = state.get("tts_lang", "en")
++    for idx, text in enumerate(voice_overs, start=1):
+@@
+-        tts = gTTS(text=text, lang="en")
++        tts = gTTS(text=text, lang=tts_lang)
+@@
+if __name__ == "__main__":
+-    inputs = {
+-        "user_query": "Generate me the script on Naxalism in India for 60 seconds in English language."
+-    }
++    inputs = {
++        "user_query": "Generate me the script on Naxalism in India for 60 seconds in English language.",
++        "languages": ["English"],
++        "style": "Cinematic",
++        "tts_lang": "en",
++    }

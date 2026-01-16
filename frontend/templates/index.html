@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>VidGen AI</title>
+  <link rel="stylesheet" href="/static/css/style.css" />
+</head>
+
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <div class="logo"></div>
+      <div class="brand-text">VidGen AI</div>
+    </div>
+    <nav class="nav">
+      <a href="/" class="nav-item nav-item-active">Home</a>
+    </nav>
+    <div class="topbar-right">
+      <button class="icon-btn" title="Notifications">🔔</button>
+      <div class="avatar" title="Account"></div>
+    </div>
+  </header>
+
+  <main class="layout">
+    <!-- LEFT: Creator controls -->
+    <section class="panel left">
+      <div class="panel-title">Create New Video</div>
+      <div class="panel-subtitle">Configure your AI generation settings.</div>
+
+      <div class="field">
+        <label>Video Prompt</label>
+        <textarea id="prompt"
+          placeholder="Describe your vision... Include duration in the prompt (e.g., '...for 60 seconds')."></textarea>
+        <div class="hint">Tip: include duration in the prompt, e.g. “for 60 seconds”.</div>
+      </div>
+
+      <div class="field">
+        <label>Languages (multi-select)</label>
+        <div class="chips-input" id="langChips">
+          <input id="langInput" type="text" placeholder="Type to search (e.g., hi, ta, bn)..." />
+          <div class="suggestions" id="langSuggestions"></div>
+        </div>
+        <div class="hint">Select multiple languages. The backend will generate one video per language and zip them.
+        </div>
+      </div>
+
+      <div class="field">
+        <label>Visual Style</label>
+        <select id="styleSelect"></select>
+      </div>
+
+      <button id="generateBtn" class="primary-btn">Generate Video</button>
+      <div class="credits">Aspect ratio fixed: <b>9:16</b> • FPS: <b>60</b> • Output: <b>1080×1920</b></div>
+    </section>
+
+    <!-- CENTER: Preview -->
+    <section class="panel center">
+      <div class="preview">
+        <div class="preview-inner">
+          <div class="preview-label">Preview</div>
+          <div class="preview-box" id="previewBox">
+            <div class="placeholder">
+              <div class="ph-title">Your video will appear here</div>
+              <div class="ph-sub">Create a job on the left to start rendering.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="logs">
+        <div class="logs-title">Status</div>
+        <div class="status-row">
+          <span class="badge" id="statusBadge">IDLE</span>
+          <span class="status-text" id="statusText">—</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- RIGHT: Export -->
+    <section class="panel right">
+      <div class="panel-title">Export Settings</div>
+      <div class="panel-subtitle">Finalize your output format.</div>
+
+      <div class="card">
+        <div class="card-title">Quality</div>
+        <div class="quality">
+          <div class="quality-item">1080p Full HD <span class="pill">REC</span></div>
+          <div class="quality-sub">Standard high quality</div>
+          <div class="quality-meta">
+            <div>Duration: <span id="durationGuess">—</span></div>
+            <div>Frame rate: 60 FPS</div>
+          </div>
+        </div>
+      </div>
+
+      <button id="downloadBtn" class="export-btn" disabled>Download Output</button>
+      <div class="download-hint" id="downloadHint">Generate a job to enable downloads.</div>
+    </section>
+  </main>
+
+  <script type="application/json" id="data-backend-url">{{ backend_url | tojson }}</script>
+  <script type="application/json" id="data-languages">{{ languages | tojson }}</script>
+  <script type="application/json" id="data-styles">{{ styles | tojson }}</script>
+
+  <script>
+    window.__BACKEND_URL__ = JSON.parse(document.getElementById('data-backend-url').textContent);
+    window.__LANGUAGES__ = JSON.parse(document.getElementById('data-languages').textContent);
+    window.__STYLES__ = JSON.parse(document.getElementById('data-styles').textContent);
+  </script>
+  <script src="/static/js/chips.js"></script>
+  <script src="/static/js/app.js"></script>
+</body>
+
+</html>

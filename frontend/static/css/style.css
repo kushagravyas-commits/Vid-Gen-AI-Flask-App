@@ -1,0 +1,183 @@
+:root{
+  --bg:#0b0b14;
+  --panel:#121226;
+  --panel-2:#0f1020;
+  --text:#eaeaf7;
+  --muted:#a6a6c7;
+  --border:#24244a;
+  --accent:#7c3aed;
+  --accent-2:#5b21b6;
+  --good:#22c55e;
+  --bad:#ef4444;
+  --warn:#f59e0b;
+  --shadow: 0 10px 30px rgba(0,0,0,.35);
+}
+*{ box-sizing:border-box; }
+html,body{ height:100%; margin:0; font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial; background: radial-gradient(1200px 800px at 40% 0%, #1a1035, var(--bg)); color:var(--text); }
+a{ color:var(--muted); text-decoration:none; }
+a:hover{ color:var(--text); }
+.topbar{
+  height:56px; display:flex; align-items:center; justify-content:space-between;
+  padding:0 18px; border-bottom:1px solid var(--border); background:rgba(10,10,20,.7); backdrop-filter: blur(8px);
+  position:sticky; top:0; z-index:10;
+}
+.brand{ display:flex; align-items:center; gap:10px; }
+.logo{ width:18px; height:18px; border-radius:4px; background:linear-gradient(135deg, var(--accent), #a78bfa); box-shadow:0 0 0 3px rgba(124,58,237,.15); }
+.brand-text{ font-weight:700; letter-spacing:.2px; }
+.nav{ display:flex; gap:16px; font-size:14px; }
+.topbar-right{ display:flex; align-items:center; gap:10px; }
+.icon-btn{ background:transparent; border:1px solid var(--border); color:var(--text); border-radius:10px; padding:6px 10px; cursor:pointer; }
+.avatar{ width:28px; height:28px; border-radius:999px; background:linear-gradient(135deg, #60a5fa, #a78bfa); border:2px solid rgba(255,255,255,.15); }
+
+.layout{
+  display:grid; grid-template-columns: 340px 1fr 320px;
+  gap:16px; padding:16px; max-width:1400px; margin:0 auto;
+}
+.panel{
+  background:rgba(18,18,38,.75);
+  border:1px solid var(--border);
+  border-radius:16px;
+  box-shadow: var(--shadow);
+  padding:16px;
+  min-height: calc(100vh - 100px);
+}
+.panel-title{ font-size:18px; font-weight:700; }
+.panel-subtitle{ font-size:13px; color:var(--muted); margin-top:4px; margin-bottom:14px; }
+.field{ margin-bottom:14px; }
+label{ display:block; font-size:13px; color:var(--muted); margin-bottom:8px; }
+textarea{
+  width:100%; min-height:120px; resize:vertical;
+  background:rgba(10,10,20,.6); color:var(--text);
+  border:1px solid var(--border); border-radius:12px; padding:12px;
+  outline:none;
+}
+textarea:focus{ border-color: rgba(124,58,237,.8); box-shadow:0 0 0 3px rgba(124,58,237,.15); }
+select{
+  width:100%;
+  background:rgba(10,10,20,.6); color:var(--text);
+  border:1px solid var(--border); border-radius:12px; padding:10px 12px;
+  outline:none;
+}
+select:focus{ border-color: rgba(124,58,237,.8); box-shadow:0 0 0 3px rgba(124,58,237,.15); }
+.hint{ font-size:12px; color:var(--muted); margin-top:8px; }
+.primary-btn{
+  width:100%; padding:12px 14px; border-radius:14px; border:none;
+  background:linear-gradient(135deg, var(--accent), var(--accent-2));
+  color:white; font-weight:700; cursor:pointer;
+}
+.primary-btn:disabled{ opacity:.55; cursor:not-allowed; }
+.credits{ margin-top:12px; color:var(--muted); font-size:12px; }
+
+.breadcrumb{ color:var(--muted); font-size:13px; margin-bottom:10px; }
+.preview{ display:flex; flex-direction:column; gap:12px; }
+.preview-inner{ background:rgba(10,10,20,.45); border:1px solid var(--border); border-radius:16px; padding:12px; }
+.preview-label{ font-size:12px; color:var(--muted); margin-bottom:8px; }
+.preview-box{
+  width:100%;
+  aspect-ratio: 9 / 16;
+  border-radius:14px;
+  background:linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.02));
+  border:1px dashed rgba(255,255,255,.12);
+  display:flex; align-items:center; justify-content:center;
+  overflow:hidden;
+}
+.placeholder{ text-align:center; padding:24px; }
+.ph-title{ font-weight:700; margin-bottom:6px; }
+.ph-sub{ color:var(--muted); font-size:13px; }
+
+.timeline{ display:flex; gap:10px; align-items:center; }
+.thumb{ width:64px; height:40px; border-radius:10px; background:rgba(255,255,255,.06); border:1px solid var(--border); }
+.thumb.active{ outline:2px solid rgba(124,58,237,.65); }
+.thumb.add{ display:flex; align-items:center; justify-content:center; font-weight:800; color:var(--muted); }
+
+.logs{ margin-top:14px; background:rgba(10,10,20,.45); border:1px solid var(--border); border-radius:16px; padding:12px; }
+.logs-title{ font-weight:700; margin-bottom:10px; }
+.status-row{ display:flex; align-items:center; gap:10px; margin-bottom:10px; }
+.badge{
+  padding:4px 10px; border-radius:999px; font-size:12px; border:1px solid var(--border);
+  background:rgba(255,255,255,.04); color:var(--muted);
+}
+.badge.good{ color:#052e14; background:rgba(34,197,94,.9); border-color:rgba(34,197,94,.7); }
+.badge.bad{ color:#3b0a0a; background:rgba(239,68,68,.9); border-color:rgba(239,68,68,.7); }
+.badge.warn{ color:#3b2a05; background:rgba(245,158,11,.9); border-color:rgba(245,158,11,.7); }
+.status-text{ color:var(--muted); font-size:13px; }
+.logbox{
+  max-height:220px; overflow:auto; margin:0;
+  background:rgba(0,0,0,.35); border:1px solid rgba(255,255,255,.08); border-radius:12px;
+  padding:10px; font-size:12px; color:#d5d5f7;
+  white-space:pre-wrap;
+}
+
+.card{
+  background:rgba(10,10,20,.45); border:1px solid var(--border); border-radius:16px; padding:12px; margin-top:12px;
+}
+.card-title{ color:var(--muted); font-size:12px; margin-bottom:10px; }
+.ratio-row{ display:flex; gap:10px; }
+.ratio{ border:1px solid var(--border); background:rgba(255,255,255,.04); color:var(--text); padding:10px 12px; border-radius:12px; cursor:pointer; }
+.ratio.active{ outline:2px solid rgba(124,58,237,.65); }
+.quality-item{ font-weight:700; display:flex; align-items:center; gap:8px; }
+.pill{ font-size:11px; padding:2px 8px; border-radius:999px; border:1px solid var(--border); background:rgba(124,58,237,.2); color:var(--text); }
+.quality-sub{ color:var(--muted); font-size:12px; margin-top:6px; }
+.quality-meta{ color:var(--muted); font-size:12px; margin-top:10px; display:flex; flex-direction:column; gap:4px; }
+
+.export-btn{
+  width:100%; margin-top:14px; padding:12px 14px; border-radius:14px;
+  background:rgba(255,255,255,.06); border:1px solid var(--border); color:var(--text); cursor:pointer;
+}
+.export-btn:disabled{ opacity:.55; cursor:not-allowed; }
+.download-hint{ margin-top:10px; color:var(--muted); font-size:12px; }
+
+.preview-video{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 14px;
+  background: #000;
+}
+
+/* Optional: only if you add <div id="previewControls"></div> above the preview box */
+.preview-controls{
+  margin-bottom: 10px;
+}
+.preview-bar{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:10px;
+  padding:8px 10px;
+  border:1px solid rgba(255,255,255,.08);
+  background:rgba(0,0,0,.18);
+  border-radius:12px;
+}
+.preview-bar-title{
+  font-size:12px;
+  color:var(--muted);
+}
+.preview-select{
+  background:rgba(10,10,20,.6);
+  color:var(--text);
+  border:1px solid var(--border);
+  border-radius:10px;
+  padding:8px 10px;
+  outline:none;
+}
+
+.nav-item-active{
+  color: var(--text);
+  font-weight: 700;
+}
+
+/* Preview video fills the preview box */
+.preview-video{
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  border-radius: 14px;
+  background: #000;
+}
+
+/* Make the preview container not fight with flex centering */
+.preview-box{
+  display: block !important;
+}
