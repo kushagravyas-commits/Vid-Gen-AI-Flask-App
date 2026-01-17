@@ -1,0 +1,81 @@
+[Script Info]
+Title: Video Subtitles
+ScriptType: v4.00+
+WrapStyle: 0
+ScaledBorderAndShadow: yes
+YCbCr Matrix: TV.709
+PlayResX: 1080
+PlayResY: 1920
+
+[V4+ Styles]
+Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+Style: Default,Arial Black,52,&H00FFFFFF,&H000000FF,&H00000000,&H96000000,-1,0,0,0,100,100,0,0,1,3,1.5,2,40,40,480,1
+
+[Events]
+Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
+Dialogue: 0,0:00:00.00,0:00:01.06,Default,,0,0,0,,{\c&H00FFFF&\b1\fscx110\fscy110}राष्ट्रीयता{\c&HFFFFFF&\b0\fscx100\fscy100} क्या है आइए समझते हैं\Nइसका असली अर्थ
+Dialogue: 0,0:00:01.06,0:00:01.45,Default,,0,0,0,,राष्ट्रीयता {\c&H00FFFF&\b1\fscx110\fscy110}क्या{\c&HFFFFFF&\b0\fscx100\fscy100} है आइए समझते हैं\Nइसका असली अर्थ
+Dialogue: 0,0:00:01.45,0:00:01.64,Default,,0,0,0,,राष्ट्रीयता क्या {\c&H00FFFF&\b1\fscx110\fscy110}है{\c&HFFFFFF&\b0\fscx100\fscy100} आइए समझते हैं\Nइसका असली अर्थ
+Dialogue: 0,0:00:01.64,0:00:01.93,Default,,0,0,0,,राष्ट्रीयता क्या है {\c&H00FFFF&\b1\fscx110\fscy110}आइए{\c&HFFFFFF&\b0\fscx100\fscy100} समझते हैं\Nइसका असली अर्थ
+Dialogue: 0,0:00:01.93,0:00:02.42,Default,,0,0,0,,राष्ट्रीयता क्या है आइए {\c&H00FFFF&\b1\fscx110\fscy110}समझते{\c&HFFFFFF&\b0\fscx100\fscy100} हैं\Nइसका असली अर्थ
+Dialogue: 0,0:00:02.42,0:00:02.71,Default,,0,0,0,,राष्ट्रीयता क्या है आइए समझते {\c&H00FFFF&\b1\fscx110\fscy110}हैं{\c&HFFFFFF&\b0\fscx100\fscy100}\Nइसका असली अर्थ
+Dialogue: 0,0:00:02.71,0:00:03.09,Default,,0,0,0,,राष्ट्रीयता क्या है आइए समझते हैं\N{\c&H00FFFF&\b1\fscx110\fscy110}इसका{\c&HFFFFFF&\b0\fscx100\fscy100} असली अर्थ
+Dialogue: 0,0:00:03.09,0:00:03.48,Default,,0,0,0,,राष्ट्रीयता क्या है आइए समझते हैं\Nइसका {\c&H00FFFF&\b1\fscx110\fscy110}असली{\c&HFFFFFF&\b0\fscx100\fscy100} अर्थ
+Dialogue: 0,0:00:03.48,0:00:03.87,Default,,0,0,0,,राष्ट्रीयता क्या है आइए समझते हैं\Nइसका असली {\c&H00FFFF&\b1\fscx110\fscy110}अर्थ{\c&HFFFFFF&\b0\fscx100\fscy100}
+Dialogue: 0,0:00:03.87,0:00:04.09,Default,,0,0,0,,{\c&H00FFFF&\b1\fscx110\fscy110}यह{\c&HFFFFFF&\b0\fscx100\fscy100} एक ऐसा विचार है जिसमें लोग अपनी\Nपहचान भाषा और संस्कृति से गहरा\Nसंबंध रखते हैं
+Dialogue: 0,0:00:04.09,0:00:04.31,Default,,0,0,0,,यह {\c&H00FFFF&\b1\fscx110\fscy110}एक{\c&HFFFFFF&\b0\fscx100\fscy100} ऐसा विचार है जिसमें लोग अपनी\Nपहचान भाषा और संस्कृति से गहरा\Nसंबंध रखते हैं
+Dialogue: 0,0:00:04.31,0:00:04.64,Default,,0,0,0,,यह एक {\c&H00FFFF&\b1\fscx110\fscy110}ऐसा{\c&HFFFFFF&\b0\fscx100\fscy100} विचार है जिसमें लोग अपनी\Nपहचान भाषा और संस्कृति से गहरा\Nसंबंध रखते हैं
+Dialogue: 0,0:00:04.64,0:00:05.19,Default,,0,0,0,,यह एक ऐसा {\c&H00FFFF&\b1\fscx110\fscy110}विचार{\c&HFFFFFF&\b0\fscx100\fscy100} है जिसमें लोग अपनी\Nपहचान भाषा और संस्कृति से गहरा\Nसंबंध रखते हैं
+Dialogue: 0,0:00:05.19,0:00:05.41,Default,,0,0,0,,यह एक ऐसा विचार {\c&H00FFFF&\b1\fscx110\fscy110}है{\c&HFFFFFF&\b0\fscx100\fscy100} जिसमें लोग अपनी\Nपहचान भाषा और संस्कृति से गहरा\Nसंबंध रखते हैं
+Dialogue: 0,0:00:05.41,0:00:06.08,Default,,0,0,0,,यह एक ऐसा विचार है {\c&H00FFFF&\b1\fscx110\fscy110}जिसमें{\c&HFFFFFF&\b0\fscx100\fscy100} लोग अपनी\Nपहचान भाषा और संस्कृति से गहरा\Nसंबंध रखते हैं
+Dialogue: 0,0:00:06.08,0:00:06.41,Default,,0,0,0,,यह एक ऐसा विचार है जिसमें {\c&H00FFFF&\b1\fscx110\fscy110}लोग{\c&HFFFFFF&\b0\fscx100\fscy100} अपनी\Nपहचान भाषा और संस्कृति से गहरा\Nसंबंध रखते हैं
+Dialogue: 0,0:00:06.41,0:00:06.85,Default,,0,0,0,,यह एक ऐसा विचार है जिसमें लोग {\c&H00FFFF&\b1\fscx110\fscy110}अपनी{\c&HFFFFFF&\b0\fscx100\fscy100}\Nपहचान भाषा और संस्कृति से गहरा\Nसंबंध रखते हैं
+Dialogue: 0,0:00:06.85,0:00:07.41,Default,,0,0,0,,यह एक ऐसा विचार है जिसमें लोग अपनी\N{\c&H00FFFF&\b1\fscx110\fscy110}पहचान{\c&HFFFFFF&\b0\fscx100\fscy100} भाषा और संस्कृति से गहरा\Nसंबंध रखते हैं
+Dialogue: 0,0:00:07.41,0:00:07.85,Default,,0,0,0,,यह एक ऐसा विचार है जिसमें लोग अपनी\Nपहचान {\c&H00FFFF&\b1\fscx110\fscy110}भाषा{\c&HFFFFFF&\b0\fscx100\fscy100} और संस्कृति से गहरा\Nसंबंध रखते हैं
+Dialogue: 0,0:00:07.85,0:00:08.07,Default,,0,0,0,,यह एक ऐसा विचार है जिसमें लोग अपनी\Nपहचान भाषा {\c&H00FFFF&\b1\fscx110\fscy110}और{\c&HFFFFFF&\b0\fscx100\fscy100} संस्कृति से गहरा\Nसंबंध रखते हैं
+Dialogue: 0,0:00:08.07,0:00:08.95,Default,,0,0,0,,यह एक ऐसा विचार है जिसमें लोग अपनी\Nपहचान भाषा और {\c&H00FFFF&\b1\fscx110\fscy110}संस्कृति{\c&HFFFFFF&\b0\fscx100\fscy100} से गहरा\Nसंबंध रखते हैं
+Dialogue: 0,0:00:08.95,0:00:09.18,Default,,0,0,0,,यह एक ऐसा विचार है जिसमें लोग अपनी\Nपहचान भाषा और संस्कृति {\c&H00FFFF&\b1\fscx110\fscy110}से{\c&HFFFFFF&\b0\fscx100\fscy100} गहरा\Nसंबंध रखते हैं
+Dialogue: 0,0:00:09.18,0:00:09.62,Default,,0,0,0,,यह एक ऐसा विचार है जिसमें लोग अपनी\Nपहचान भाषा और संस्कृति से {\c&H00FFFF&\b1\fscx110\fscy110}गहरा{\c&HFFFFFF&\b0\fscx100\fscy100}\Nसंबंध रखते हैं
+Dialogue: 0,0:00:09.62,0:00:10.17,Default,,0,0,0,,यह एक ऐसा विचार है जिसमें लोग अपनी\Nपहचान भाषा और संस्कृति से गहरा\N{\c&H00FFFF&\b1\fscx110\fscy110}संबंध{\c&HFFFFFF&\b0\fscx100\fscy100} रखते हैं
+Dialogue: 0,0:00:10.17,0:00:10.61,Default,,0,0,0,,यह एक ऐसा विचार है जिसमें लोग अपनी\Nपहचान भाषा और संस्कृति से गहरा\Nसंबंध {\c&H00FFFF&\b1\fscx110\fscy110}रखते{\c&HFFFFFF&\b0\fscx100\fscy100} हैं
+Dialogue: 0,0:00:10.61,0:00:10.95,Default,,0,0,0,,यह एक ऐसा विचार है जिसमें लोग अपनी\Nपहचान भाषा और संस्कृति से गहरा\Nसंबंध रखते {\c&H00FFFF&\b1\fscx110\fscy110}हैं{\c&HFFFFFF&\b0\fscx100\fscy100}
+Dialogue: 0,0:00:10.95,0:00:11.87,Default,,0,0,0,,{\c&H00FFFF&\b1\fscx110\fscy110}स्वतंत्रता{\c&HFFFFFF&\b0\fscx100\fscy100} के बाद से कई देशों ने\Nराष्ट्रीयता को अपनी शक्ति का आधार\Nबनाया है
+Dialogue: 0,0:00:11.87,0:00:12.06,Default,,0,0,0,,स्वतंत्रता {\c&H00FFFF&\b1\fscx110\fscy110}के{\c&HFFFFFF&\b0\fscx100\fscy100} बाद से कई देशों ने\Nराष्ट्रीयता को अपनी शक्ति का आधार\Nबनाया है
+Dialogue: 0,0:00:12.06,0:00:12.33,Default,,0,0,0,,स्वतंत्रता के {\c&H00FFFF&\b1\fscx110\fscy110}बाद{\c&HFFFFFF&\b0\fscx100\fscy100} से कई देशों ने\Nराष्ट्रीयता को अपनी शक्ति का आधार\Nबनाया है
+Dialogue: 0,0:00:12.33,0:00:12.52,Default,,0,0,0,,स्वतंत्रता के बाद {\c&H00FFFF&\b1\fscx110\fscy110}से{\c&HFFFFFF&\b0\fscx100\fscy100} कई देशों ने\Nराष्ट्रीयता को अपनी शक्ति का आधार\Nबनाया है
+Dialogue: 0,0:00:12.52,0:00:12.70,Default,,0,0,0,,स्वतंत्रता के बाद से {\c&H00FFFF&\b1\fscx110\fscy110}कई{\c&HFFFFFF&\b0\fscx100\fscy100} देशों ने\Nराष्ट्रीयता को अपनी शक्ति का आधार\Nबनाया है
+Dialogue: 0,0:00:12.70,0:00:13.17,Default,,0,0,0,,स्वतंत्रता के बाद से कई {\c&H00FFFF&\b1\fscx110\fscy110}देशों{\c&HFFFFFF&\b0\fscx100\fscy100} ने\Nराष्ट्रीयता को अपनी शक्ति का आधार\Nबनाया है
+Dialogue: 0,0:00:13.17,0:00:13.35,Default,,0,0,0,,स्वतंत्रता के बाद से कई देशों {\c&H00FFFF&\b1\fscx110\fscy110}ने{\c&HFFFFFF&\b0\fscx100\fscy100}\Nराष्ट्रीयता को अपनी शक्ति का आधार\Nबनाया है
+Dialogue: 0,0:00:13.35,0:00:14.37,Default,,0,0,0,,स्वतंत्रता के बाद से कई देशों ने\N{\c&H00FFFF&\b1\fscx110\fscy110}राष्ट्रीयता{\c&HFFFFFF&\b0\fscx100\fscy100} को अपनी शक्ति का आधार\Nबनाया है
+Dialogue: 0,0:00:14.37,0:00:14.55,Default,,0,0,0,,स्वतंत्रता के बाद से कई देशों ने\Nराष्ट्रीयता {\c&H00FFFF&\b1\fscx110\fscy110}को{\c&HFFFFFF&\b0\fscx100\fscy100} अपनी शक्ति का आधार\Nबनाया है
+Dialogue: 0,0:00:14.55,0:00:14.92,Default,,0,0,0,,स्वतंत्रता के बाद से कई देशों ने\Nराष्ट्रीयता को {\c&H00FFFF&\b1\fscx110\fscy110}अपनी{\c&HFFFFFF&\b0\fscx100\fscy100} शक्ति का आधार\Nबनाया है
+Dialogue: 0,0:00:14.92,0:00:15.39,Default,,0,0,0,,स्वतंत्रता के बाद से कई देशों ने\Nराष्ट्रीयता को अपनी {\c&H00FFFF&\b1\fscx110\fscy110}शक्ति{\c&HFFFFFF&\b0\fscx100\fscy100} का आधार\Nबनाया है
+Dialogue: 0,0:00:15.39,0:00:15.57,Default,,0,0,0,,स्वतंत्रता के बाद से कई देशों ने\Nराष्ट्रीयता को अपनी शक्ति {\c&H00FFFF&\b1\fscx110\fscy110}का{\c&HFFFFFF&\b0\fscx100\fscy100} आधार\Nबनाया है
+Dialogue: 0,0:00:15.57,0:00:15.94,Default,,0,0,0,,स्वतंत्रता के बाद से कई देशों ने\Nराष्ट्रीयता को अपनी शक्ति का {\c&H00FFFF&\b1\fscx110\fscy110}आधार{\c&HFFFFFF&\b0\fscx100\fscy100}\Nबनाया है
+Dialogue: 0,0:00:15.94,0:00:16.40,Default,,0,0,0,,स्वतंत्रता के बाद से कई देशों ने\Nराष्ट्रीयता को अपनी शक्ति का आधार\N{\c&H00FFFF&\b1\fscx110\fscy110}बनाया{\c&HFFFFFF&\b0\fscx100\fscy100} है
+Dialogue: 0,0:00:16.40,0:00:16.59,Default,,0,0,0,,स्वतंत्रता के बाद से कई देशों ने\Nराष्ट्रीयता को अपनी शक्ति का आधार\Nबनाया {\c&H00FFFF&\b1\fscx110\fscy110}है{\c&HFFFFFF&\b0\fscx100\fscy100}
+Dialogue: 0,0:00:16.59,0:00:17.11,Default,,0,0,0,,{\c&H00FFFF&\b1\fscx110\fscy110}लेकिन{\c&HFFFFFF&\b0\fscx100\fscy100} यह विचार अक्सर राजनीतिक luta\Nसीमाओं और मतभेदों को भी उजागर करता\Nहै
+Dialogue: 0,0:00:17.11,0:00:17.32,Default,,0,0,0,,लेकिन {\c&H00FFFF&\b1\fscx110\fscy110}यह{\c&HFFFFFF&\b0\fscx100\fscy100} विचार अक्सर राजनीतिक luta\Nसीमाओं और मतभेदों को भी उजागर करता\Nहै
+Dialogue: 0,0:00:17.32,0:00:17.85,Default,,0,0,0,,लेकिन यह {\c&H00FFFF&\b1\fscx110\fscy110}विचार{\c&HFFFFFF&\b0\fscx100\fscy100} अक्सर राजनीतिक luta\Nसीमाओं और मतभेदों को भी उजागर करता\Nहै
+Dialogue: 0,0:00:17.85,0:00:18.37,Default,,0,0,0,,लेकिन यह विचार {\c&H00FFFF&\b1\fscx110\fscy110}अक्सर{\c&HFFFFFF&\b0\fscx100\fscy100} राजनीतिक luta\Nसीमाओं और मतभेदों को भी उजागर करता\Nहै
+Dialogue: 0,0:00:18.37,0:00:19.21,Default,,0,0,0,,लेकिन यह विचार अक्सर {\c&H00FFFF&\b1\fscx110\fscy110}राजनीतिक{\c&HFFFFFF&\b0\fscx100\fscy100} luta\Nसीमाओं और मतभेदों को भी उजागर करता\Nहै
+Dialogue: 0,0:00:19.21,0:00:19.63,Default,,0,0,0,,लेकिन यह विचार अक्सर राजनीतिक {\c&H00FFFF&\b1\fscx110\fscy110}LUTA{\c&HFFFFFF&\b0\fscx100\fscy100}\Nसीमाओं और मतभेदों को भी उजागर करता\Nहै
+Dialogue: 0,0:00:19.63,0:00:20.26,Default,,0,0,0,,लेकिन यह विचार अक्सर राजनीतिक luta\N{\c&H00FFFF&\b1\fscx110\fscy110}सीमाओं{\c&HFFFFFF&\b0\fscx100\fscy100} और मतभेदों को भी उजागर करता\Nहै
+Dialogue: 0,0:00:20.26,0:00:20.47,Default,,0,0,0,,लेकिन यह विचार अक्सर राजनीतिक luta\Nसीमाओं {\c&H00FFFF&\b1\fscx110\fscy110}और{\c&HFFFFFF&\b0\fscx100\fscy100} मतभेदों को भी उजागर करता\Nहै
+Dialogue: 0,0:00:20.47,0:00:21.20,Default,,0,0,0,,लेकिन यह विचार अक्सर राजनीतिक luta\Nसीमाओं और {\c&H00FFFF&\b1\fscx110\fscy110}मतभेदों{\c&HFFFFFF&\b0\fscx100\fscy100} को भी उजागर करता\Nहै
+Dialogue: 0,0:00:21.20,0:00:21.41,Default,,0,0,0,,लेकिन यह विचार अक्सर राजनीतिक luta\Nसीमाओं और मतभेदों {\c&H00FFFF&\b1\fscx110\fscy110}को{\c&HFFFFFF&\b0\fscx100\fscy100} भी उजागर करता\Nहै
+Dialogue: 0,0:00:21.41,0:00:21.62,Default,,0,0,0,,लेकिन यह विचार अक्सर राजनीतिक luta\Nसीमाओं और मतभेदों को {\c&H00FFFF&\b1\fscx110\fscy110}भी{\c&HFFFFFF&\b0\fscx100\fscy100} उजागर करता\Nहै
+Dialogue: 0,0:00:21.62,0:00:22.15,Default,,0,0,0,,लेकिन यह विचार अक्सर राजनीतिक luta\Nसीमाओं और मतभेदों को भी {\c&H00FFFF&\b1\fscx110\fscy110}उजागर{\c&HFFFFFF&\b0\fscx100\fscy100} करता\Nहै
+Dialogue: 0,0:00:22.15,0:00:22.57,Default,,0,0,0,,लेकिन यह विचार अक्सर राजनीतिक luta\Nसीमाओं और मतभेदों को भी उजागर {\c&H00FFFF&\b1\fscx110\fscy110}करता{\c&HFFFFFF&\b0\fscx100\fscy100}\Nहै
+Dialogue: 0,0:00:22.57,0:00:22.78,Default,,0,0,0,,लेकिन यह विचार अक्सर राजनीतिक luta\Nसीमाओं और मतभेदों को भी उजागर करता\N{\c&H00FFFF&\b1\fscx110\fscy110}है{\c&HFFFFFF&\b0\fscx100\fscy100}
+Dialogue: 0,0:00:22.78,0:00:23.77,Default,,0,0,0,,{\c&H00FFFF&\b1\fscx110\fscy110}राष्ट्रीयता{\c&HFFFFFF&\b0\fscx100\fscy100} सिर्फ गर्व नहीं बल्कि\Nजिम्मेदारी भी है—एकजुट होकर आगे\Nबढ़ना
+Dialogue: 0,0:00:23.77,0:00:24.22,Default,,0,0,0,,राष्ट्रीयता {\c&H00FFFF&\b1\fscx110\fscy110}सिर्फ{\c&HFFFFFF&\b0\fscx100\fscy100} गर्व नहीं बल्कि\Nजिम्मेदारी भी है—एकजुट होकर आगे\Nबढ़ना
+Dialogue: 0,0:00:24.22,0:00:24.58,Default,,0,0,0,,राष्ट्रीयता सिर्फ {\c&H00FFFF&\b1\fscx110\fscy110}गर्व{\c&HFFFFFF&\b0\fscx100\fscy100} नहीं बल्कि\Nजिम्मेदारी भी है—एकजुट होकर आगे\Nबढ़ना
+Dialogue: 0,0:00:24.58,0:00:24.94,Default,,0,0,0,,राष्ट्रीयता सिर्फ गर्व {\c&H00FFFF&\b1\fscx110\fscy110}नहीं{\c&HFFFFFF&\b0\fscx100\fscy100} बल्कि\Nजिम्मेदारी भी है—एकजुट होकर आगे\Nबढ़ना
+Dialogue: 0,0:00:24.94,0:00:25.39,Default,,0,0,0,,राष्ट्रीयता सिर्फ गर्व नहीं {\c&H00FFFF&\b1\fscx110\fscy110}बल्कि{\c&HFFFFFF&\b0\fscx100\fscy100}\Nजिम्मेदारी भी है—एकजुट होकर आगे\Nबढ़ना
+Dialogue: 0,0:00:25.39,0:00:26.29,Default,,0,0,0,,राष्ट्रीयता सिर्फ गर्व नहीं बल्कि\N{\c&H00FFFF&\b1\fscx110\fscy110}जिम्मेदारी{\c&HFFFFFF&\b0\fscx100\fscy100} भी है—एकजुट होकर आगे\Nबढ़ना
+Dialogue: 0,0:00:26.29,0:00:26.47,Default,,0,0,0,,राष्ट्रीयता सिर्फ गर्व नहीं बल्कि\Nजिम्मेदारी {\c&H00FFFF&\b1\fscx110\fscy110}भी{\c&HFFFFFF&\b0\fscx100\fscy100} है—एकजुट होकर आगे\Nबढ़ना
+Dialogue: 0,0:00:26.47,0:00:27.19,Default,,0,0,0,,राष्ट्रीयता सिर्फ गर्व नहीं बल्कि\Nजिम्मेदारी भी {\c&H00FFFF&\b1\fscx110\fscy110}है—एकजुट{\c&HFFFFFF&\b0\fscx100\fscy100} होकर आगे\Nबढ़ना
+Dialogue: 0,0:00:27.19,0:00:27.54,Default,,0,0,0,,राष्ट्रीयता सिर्फ गर्व नहीं बल्कि\Nजिम्मेदारी भी है—एकजुट {\c&H00FFFF&\b1\fscx110\fscy110}होकर{\c&HFFFFFF&\b0\fscx100\fscy100} आगे\Nबढ़ना
+Dialogue: 0,0:00:27.54,0:00:27.81,Default,,0,0,0,,राष्ट्रीयता सिर्फ गर्व नहीं बल्कि\Nजिम्मेदारी भी है—एकजुट होकर {\c&H00FFFF&\b1\fscx110\fscy110}आगे{\c&HFFFFFF&\b0\fscx100\fscy100}\Nबढ़ना
+Dialogue: 0,0:00:27.81,0:00:28.26,Default,,0,0,0,,राष्ट्रीयता सिर्फ गर्व नहीं बल्कि\Nजिम्मेदारी भी है—एकजुट होकर आगे\N{\c&H00FFFF&\b1\fscx110\fscy110}बढ़ना{\c&HFFFFFF&\b0\fscx100\fscy100}
