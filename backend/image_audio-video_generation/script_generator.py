@@ -12,142 +12,113 @@ load_dotenv()
 
 
 def sanitize_model_json(text: str) -> str:
-    """Remove ```json fences and extract the JSON object."""
     if not isinstance(text, str):
         return text
-
     t = text.strip()
-
-    # Remove opening fence like ```json or ```
     t = re.sub(r"^\s*```[a-zA-Z]*\s*", "", t)
-
-    # Remove closing fence ```
-    t = re.sub(r"\s*```\s*$", "", t)
-
-    t = t.strip()
-
-    # Extract the first {...} block
-    start = t.find("{")
-    end = t.rfind("}")
+    t = re.sub(r"\s*```\s*$", "", t).strip()
+    start = t.find("{"); end = t.rfind("}")
     if start != -1 and end != -1 and end > start:
-        t = t[start : end + 1]
-
+        t = t[start:end+1]
     return t
 
 
 def _get_openrouter_key() -> str:
     k = (os.getenv("OPENROUTER_API_KEY") or "").strip().strip('"').strip("'")
     if not k:
-        raise ValueError(
-            "OPENROUTER_API_KEY is missing/empty at runtime. "
-            "Check your .env loading and working directory."
-        )
+        raise ValueError("OPENROUTER_API_KEY missing/empty.")
     return k
 
 
 def generate_script(state: Dict[str, Any]) -> Dict[str, Any]:
-    prompt_string = """
-You are an expert political content creator and video editor. Your task is to generate a script for faceless vertical video (9:16).
+    duration_seconds = state.get("duration_seconds", 30)
+    try:
+        duration_seconds = int(float(duration_seconds))
+    except Exception:
+        duration_seconds = 30
+    if duration_seconds <= 0:
+        duration_seconds = 30
+
+    prev_audio = state.get("previous_audio_total_duration")
+    attempt = int(state.get("duration_attempt", 0) or 0)
+
+    feedback = ""
+    if prev_audio is not None:
+        try:
+            prev_audio_f = float(prev_audio)
+            delta = duration_seconds - prev_audio_f
+            if abs(delta) > 0.5:
+                if delta > 0:
+                    feedback = f"\nIMPORTANT FEEDBACK: Last attempt spoken audio was ~{prev_audio_f:.1f}s, but target is {duration_seconds}s. EXPAND the spoken content by ~{delta:.1f}s.\n"
+                else:
+                    feedback = f"\nIMPORTANT FEEDBACK: Last attempt spoken audio was ~{prev_audio_f:.1f}s, but target is {duration_seconds}s. SHORTEN the spoken content by ~{abs(delta):.1f}s.\n"
+        except Exception:
+            pass
+
+    prompt_string = f"""
+You are an expert political content creator and video editor. Generate a script for a faceless vertical video (9:16).
+
+TARGET:
+- Total spoken duration must be about {duration_seconds} seconds.
+- You MUST set expected_time_in_seconds as INTEGERS so that the SUM across scenes is EXACTLY {duration_seconds}.
+
+PACING RULE:
+- Assume normal speaking pace ~2.2 words/sec (space-delimited words in the target script).
+- Make each scene's "voiceover" length match its expected_time_in_seconds.
+{feedback}
 
 Instructions:
-- Split the script into scenes based on visual changes
-- For each scene, provide the spoken text and 3 keywords for stock footage search
-- Use an attention-grabbing 'Hook' in the first 3 seconds
-- End with a 'Call to Action'
-- Whatever the time is given by the user, divide the scenes into that time.
-- you have to assign the expected time in seconds for each scene accrding to the length of the voiceover in each scene.
-- Write the expected time in seconds for each scene according to the voiceover.
-- There is no limit of scenes, you can create as many scenes as you want.
-- In the voiceover you also have to write the tone. You have to select the tone only from the below options - 
-    "laughs", "laughs harder", "starts laughing", "wheezing",
-    "whispers", "shouts",
-    "sighs", "exhales", "clears throat", "coughs", "gasps", "snorts",
-    "sarcastic", "curious", "excited", "crying", "mischievously",
-    "sad", "angry", "happily",
-    "applause", "clapping", "gunshot", "explosion", "swallows", "gulps",
-    "slowly", "quickly", "chuckles".
-- Always write the tone in inside the '[]' bracket. Eg: [laughs],[sad],[exhales],[coughs]. 
-- IMPORTANT: Write ALL "voiceover" text strictly in {languages}. Do NOT use English (except proper nouns). Use the native script (e.g., हिन्दी, বাংলা, தமிழ்).
-- Target language code: {tts_lang}. Use this to decide the exact language/script.
-- ABSOLUTE RULE: The "voiceover" must be written ONLY in the target language's native script. 
-  If tts_lang is "hi", use Devanagari only (हिन्दी). No Roman letters, no English words.
+- Split into scenes
+- Hook in first 3 seconds
+- End with CTA
+- Add tone tags in [] (e.g. [excited], [curious], [laughs]) — these will drive TTS expression
+- IMPORTANT: Write ALL voiceover strictly in {", ".join(state.get("languages", []))}. No English except proper nouns.
+- Target language code: {state.get("tts_lang","en")} and use native script only.
 
-- Output strictly in JSON format with this structure:
-
+Output STRICT JSON:
 {{
   "metadata": {{
     "topic": "<topic_name>",
-    "language": "{languages}",
-    "style": "{style}",
-    "total_estimated_duration": "<duration>"
+    "language": "{", ".join(state.get("languages", []))}",
+    "style": "{state.get("style","")}",
+    "target_duration_seconds": {duration_seconds},
+    "attempt": {attempt}
   }},
   "video_script": [
     {{
       "scene_id": 1,
-      "expected_time_in_seconds": "expected_time_in_seconds",
-      "voiceover": "spoken text",
-      "visual_keywords": "keyword1, keyword2, keyword3",
+      "expected_time_in_seconds": 6,
+      "voiceover": "....",
+      "visual_keywords": "k1, k2, k3",
       "overlay_text": "TEXT"
     }}
   ]
 }}
+Query:
+{state["user_query"]}
+"""
 
-Now generate a script for the following query:
-{query}
-
-Remember: Your response must be ONLY valid JSON, nothing else.
-    """
-
-    prompt = PromptTemplate(
-        input_variables=["query", "languages", "style", "tts_lang"],
-        template=prompt_string,
-    )
-
-    client = OpenAI(
-        base_url="https://openrouter.ai/api/v1",
-        api_key=_get_openrouter_key(),
-    )
-
-    response = client.chat.completions.create(
+    client = OpenAI(base_url="https://openrouter.ai/api/v1", api_key=_get_openrouter_key())
+    resp = client.chat.completions.create(
         model="nvidia/nemotron-3-nano-30b-a3b:free",
         messages=[
-            {
-                "role": "system",
-                "content": "You are a video script generator. Always respond with valid JSON only. Follow the user's exact query topic.",
-            },
-            {
-                "role": "user",
-                "content": prompt.format(
-                    query=state["user_query"],
-                    languages=", ".join(state.get("languages", []))
-                    if isinstance(state.get("languages"), list)
-                    else str(state.get("languages", "")),
-                    style=str(state.get("style", "")),
-                    tts_lang=str(state.get("tts_lang", "en")),
-                ),
-            },
+            {"role": "system", "content": "Return valid JSON only."},
+            {"role": "user", "content": prompt_string},
         ],
-        extra_body={"reasoning": {"enabled": True}},
     )
-
-    script = response.choices[0].message.content
-    script = sanitize_model_json(script)
+    script = sanitize_model_json(resp.choices[0].message.content)
     return {"video_script": script}
 
 
 def extract_script(state: Dict[str, Any]) -> Dict[str, Any]:
-    try:
-        clean = sanitize_model_json(state["video_script"])
-        script_data = json.loads(clean)
+    clean = sanitize_model_json(state["video_script"])
+    script_data = json.loads(clean)
 
-        voice_overs = []
-        for scene in script_data.get("video_script", []):
-            voiceover = scene.get("voiceover", "")
-            if voiceover:
-                voice_overs.append(voiceover)
+    voice_overs = []
+    for scene in script_data.get("video_script", []):
+        vo = scene.get("voiceover", "")
+        if vo:
+            voice_overs.append(vo)
 
-        print(f"Extracted {len(voice_overs)} voiceovers")
-        return {"voice_overs": voice_overs}
-
-    except json.JSONDecodeError as e:
-        raise ValueError(f"Invalid script JSON: {state['video_script']}") from e
+    print(f"Extracted {len(voice_overs)} voiceovers")
+    return {"voice_overs": voice_overs}
